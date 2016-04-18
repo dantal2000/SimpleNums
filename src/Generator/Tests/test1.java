@@ -1,7 +1,6 @@
 package Generator.Tests;
 
 import Generator.Model_1;
-
 import java.util.Random;
 
 public class test1 {
@@ -16,7 +15,7 @@ public class test1 {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("Test #3: There are simples of range of 10 to 100: ");
+        System.out.println("Test #3: There are simples of range of 1 to 100: ");
         int counter = 0;
         try {
             for (int a : generator.getSimplesInRange(1, 100)) {
