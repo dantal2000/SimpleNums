@@ -2,10 +2,10 @@ package Generator;
 
 import java.util.ArrayList;
 
-class Model_1 implements Model {
+public class Model_1 implements Model {
 
     public int getSimpleInRange(int start, int end) throws Exception {
-        if (!(start <= end && start >= 2)) throw new Exception("Что за ерунду вы ввели!!");
+        if (!(start <= end && start >= 1)) throw new Exception("Что за ерунду вы ввели!!");
         int result = 0;
         for (int i = start; i <= end; i++)
             if (isSimple(i)) {
@@ -13,14 +13,14 @@ class Model_1 implements Model {
                 break;
             }
         if (result == 0) throw new Exception("Простых нет");
-        return 0;
+        return result;
     }
 
     public boolean isSimple(int num) {
         boolean decision = true;
-        int sqrt = (int) Math.sqrt(num);
-        for (int i = 2; i < sqrt; i++)
-            if (num % sqrt == 0) {
+        //int sqrt = (int) Math.sqrt(num);
+        for (int i = 2; i <= num / 2; i++)
+            if (num % i == 0) {
                 decision = false;
                 break;
             }
@@ -28,12 +28,12 @@ class Model_1 implements Model {
     }
 
     public int[] getSimplesInRange(int start, int end) throws Exception {
-        if (!(start <= end && start >= 2)) throw new Exception("Что за ерунду вы ввели!!");
+        if (!(start <= end && start >= 1)) throw new Exception("Что за ерунду вы ввели!!");
         ArrayList<Integer> result = new ArrayList<>();
         int res_start = start;
         while (true) {
             try {
-                int a = getSimpleInRange(res_start, end);
+                int a = getSimpleInRange(res_start + 1, end);
                 res_start = a;
                 result.add(a);
             } catch (Exception e) {
